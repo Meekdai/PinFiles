@@ -1,0 +1,75 @@
+{
+  "name": "pinfiles",
+  "displayName": "PinFiles",
+  "description": "",
+  "version": "0.0.1",
+  "publisher": "Meekdai",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+        {
+            "command": "customView.selectFile",
+            "title": "Select File"
+        },
+        {
+            "command": "customView.openFile",
+            "title": "Open File"
+        },
+        {
+            "command": "customView.deleteFile",
+            "title": "Delete File"
+        }
+    ],
+    "menus": {
+        "view/title": [
+            {
+                "command": "customView.selectFile",
+                "when": "view == customView",
+                "group": "navigation"
+            }
+        ],
+        "view/item/context": [
+            {
+                "command": "customView.deleteFile",
+                "when": "view == customView && viewItem == file",
+                "group": "1_modification"
+            }
+        ]
+    },
+    "views": {
+        "explorer": [
+            {
+                "id": "customView",
+                "name": "PinFiles"
+            }
+        ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.82.0",
+    "@types/mocha": "^10.0.3",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2",
+    "@vscode/test-electron": "^2.3.6"
+  }
+}
