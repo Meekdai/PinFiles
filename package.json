@@ -2,7 +2,7 @@
   "name": "pinfiles",
   "displayName": "PinFiles",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "Meekdai",
   "icon": "logo.png",
   "repository": {
@@ -19,42 +19,42 @@
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-        {
-            "command": "customView.selectFile",
-            "title": "Select File"
-        },
-        {
-            "command": "customView.openFile",
-            "title": "Open File"
-        },
-        {
-            "command": "customView.deleteFile",
-            "title": "Delete File"
-        }
+      {
+        "command": "customView.selectFile",
+        "title": "Select File"
+      },
+      {
+        "command": "customView.openFile",
+        "title": "Open File"
+      },
+      {
+        "command": "customView.deleteFile",
+        "title": "Delete File"
+      }
     ],
     "menus": {
-        "view/title": [
-            {
-                "command": "customView.selectFile",
-                "when": "view == customView",
-                "group": "navigation"
-            }
-        ],
-        "view/item/context": [
-            {
-                "command": "customView.deleteFile",
-                "when": "view == customView && viewItem == file",
-                "group": "1_modification"
-            }
-        ]
+      "view/title": [
+        {
+          "command": "customView.selectFile",
+          "when": "view == customView",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "customView.deleteFile",
+          "when": "view == customView && viewItem == file",
+          "group": "1_modification"
+        }
+      ]
     },
     "views": {
-        "explorer": [
-            {
-                "id": "customView",
-                "name": "PinFiles"
-            }
-        ]
+      "explorer": [
+        {
+          "id": "customView",
+          "name": "PinFiles"
+        }
+      ]
     }
   },
   "scripts": {
