@@ -48,7 +48,8 @@ class CustomViewProvider implements vscode.TreeDataProvider<string> {
     }
 
     getTreeItem(element: string): vscode.TreeItem | Thenable<vscode.TreeItem> {
-        const treeItem = new vscode.TreeItem(element, vscode.TreeItemCollapsibleState.None);
+        const fileName = path.basename(element);
+        const treeItem = new vscode.TreeItem(fileName, vscode.TreeItemCollapsibleState.None);
         treeItem.command = {
             command: 'customView.openFile',
             title: 'Open File',
@@ -57,13 +58,14 @@ class CustomViewProvider implements vscode.TreeDataProvider<string> {
 
         // 添加图标
         const ext = path.extname(element);
-        if (ext === '.py') {
-            treeItem.iconPath = new vscode.ThemeIcon('file-type-python');
-        } else if (ext === '.md') {
-            treeItem.iconPath = new vscode.ThemeIcon('file-type-markdown');
-        } else if (ext === '.json') {
-            treeItem.iconPath = new vscode.ThemeIcon('file-type-json');
-        }
+        treeItem.iconPath = new vscode.ThemeIcon('file');
+        // if (ext === '.py') {
+        //     treeItem.iconPath = new vscode.ThemeIcon('file-type-python');
+        // } else if (ext === '.md') {
+        //     treeItem.iconPath = new vscode.ThemeIcon('file-type-markdown');
+        // } else if (ext === '.json') {
+        //     treeItem.iconPath = new vscode.ThemeIcon('file-type-json');
+        // }
 
         treeItem.contextValue = 'file';
 
