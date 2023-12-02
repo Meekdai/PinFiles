@@ -67,7 +67,7 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.82.0",
+    "@types/vscode": "^1.30.0",
     "@types/mocha": "^10.0.3",
     "@types/node": "18.x",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
