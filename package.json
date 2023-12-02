@@ -10,7 +10,7 @@
     "url": "https://github.com/Meekdai/PinFiles.git"
   },
   "engines": {
-    "vscode": "^1.82.0"
+    "vscode": "^1.30.0"
   },
   "categories": [
     "Other"
@@ -21,7 +21,8 @@
     "commands": [
       {
         "command": "customView.selectFile",
-        "title": "Select File"
+        "title": "Select File",
+        "icon": "$(file-add)"
       },
       {
         "command": "customView.openFile",

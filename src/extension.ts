@@ -57,15 +57,8 @@ class CustomViewProvider implements vscode.TreeDataProvider<string> {
         };
 
         // 添加图标
-        const ext = path.extname(element);
-        treeItem.iconPath = new vscode.ThemeIcon('file');
-        // if (ext === '.py') {
-        //     treeItem.iconPath = new vscode.ThemeIcon('file-type-python');
-        // } else if (ext === '.md') {
-        //     treeItem.iconPath = new vscode.ThemeIcon('file-type-markdown');
-        // } else if (ext === '.json') {
-        //     treeItem.iconPath = new vscode.ThemeIcon('file-type-json');
-        // }
+        treeItem.iconPath = vscode.ThemeIcon.File;
+        treeItem.resourceUri = vscode.Uri.file(element);
 
         treeItem.contextValue = 'file';
 
